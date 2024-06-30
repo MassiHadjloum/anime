@@ -11,14 +11,14 @@ function LoadMore() {
   const { ref, inView } = useInView();
   const [data, setData] = useState<AnimeCard[]>([]);
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     fetchAnime(page).then((response) => {
-  //       setData([...data, ...response]);
-  //       page++;
-  //     });
-  //   }
-  // }, [inView, data]);
+  useEffect(() => {
+    if (inView) {
+      fetchAnime(page).then((response) => {
+        setData([...data, ...response]);
+        page++;
+      });
+    }
+  }, [inView, data]);
 
   return (
     <>
